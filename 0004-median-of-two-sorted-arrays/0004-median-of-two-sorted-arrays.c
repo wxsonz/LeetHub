@@ -12,11 +12,11 @@ double findMedianSortedArrays(int* nums1, int nums1Size, int* nums2, int nums2Si
             merged[k++] = nums2[j++];
     }
 
-    for (; i < nums1Size;)
-        merged[k++] = nums1[i++];
+    for (; i < nums1Size;i++)
+        merged[k++] = nums1[i];
     
-    for (; j < nums2Size;)
-        merged[k++] = nums2[j++];
+    for (; j < nums2Size;j++)
+        merged[k++] = nums2[j];
     
     if (length % 2 ==0)
         return (double)(merged[length/2 - 1] + merged[length/2]) / 2.0;
