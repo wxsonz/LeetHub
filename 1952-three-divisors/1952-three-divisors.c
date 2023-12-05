@@ -24,8 +24,8 @@ bool isThree(int n) {
 }
 */
 
-// manual labour
-// yahooo
+// manual labour yahooo
+// O(n) BABYYYYYYYY
 bool isThree(int n) {
     int squares[] = {4, 9, 25, 49, 121, 169, 289, 361, 529, 841, 961, 1369, 1681, 1849, 2209, 2809, 3481, 3721, 4489, 5041, 5329, 6241, 6889, 7921, 9409};
     
@@ -36,6 +36,6 @@ bool isThree(int n) {
             return 1;
         }
     }
-    
+
     return 0;
 }
