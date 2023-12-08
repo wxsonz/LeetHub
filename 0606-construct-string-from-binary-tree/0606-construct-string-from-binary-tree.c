@@ -20,10 +20,13 @@ char* tree2str(struct TreeNode* root) {
     {
         asprintf(&treestring, "%d", root->val);
     } 
+    
     else if (right[0] == '\0') 
     {
         asprintf(&treestring, "%d(%s)", root->val, left);
-    } else 
+    } 
+    
+    else 
     {
         asprintf(&treestring, "%d(%s)(%s)", root->val, left, right);
     }
