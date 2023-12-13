@@ -22,9 +22,19 @@ int numSpecial(int** mat, int matSize, int* matColSize) {
     
     for (int y = 0; y < rows; y++) {
         for (int x = 0; x < cols; x++) {
-            if (mat[y][x] == 1 && countY[y] == 1 && countX[x] == 1) {
-                specialCount++;
-            }
+            
+            if (mat[y][x] == 1 && countY[y] == 1 )
+            {
+                if (countX[x] == 1)
+                {
+                    specialCount++;
+                    break;
+                }
+                else if (countX[x] > 1)
+                {
+                    break;
+                }
+            } 
         }
     }
     
