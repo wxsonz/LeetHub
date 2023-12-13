@@ -44,5 +44,8 @@ int numSpecial(int** mat, int matSize, int* matColSize) {
         }
     }
     
+    free(countX);
+    free(countY);
+    
     return specialCount;
 }
