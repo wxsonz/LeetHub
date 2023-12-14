@@ -40,11 +40,12 @@ int** onesMinusZeros(int** grid, int gridSize, int* gridColSize, int* returnSize
     }
     
     for (int x = 0; x < xSize; x++){
+        
         diff[x] = (int*)malloc(sizeof(int) * ySize);
         (*returnColumnSizes)[x] = ySize;
         
         for (int y = 0; y < ySize; y++){
-            diff[x][y] = x1[x] + y1[y] - x0[x] - y0[y];
+            diff[x][y] = (x1[x] + y1[y]) - (x0[x] + y0[y]);
         }
     }
 
