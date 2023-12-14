@@ -30,7 +30,6 @@ int** onesMinusZeros(int** grid, int gridSize, int* gridColSize, int* returnSize
                 x1[x]++;
                 y1[y]++;
             }
-            
             else
             {
                 x0[x]++;
@@ -40,11 +39,8 @@ int** onesMinusZeros(int** grid, int gridSize, int* gridColSize, int* returnSize
     }
     
     for (int x = 0; x < xSize; x++){
-        
-
-        
         for (int y = 0; y < ySize; y++){
-            diff[x][y] = (x1[x] + y1[y]) - (x0[x] + y0[y]);
+            diff[x][y] = x1[x] + y1[y] - x0[x] - y0[y];
         }
     }
 
