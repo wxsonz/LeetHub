@@ -1,7 +1,10 @@
 int buyChoco(int* prices, int pricesSize, int money){
-    int min1, min2;
+    // int min1, min2;
     // min1 < min2
     
+    int min1 = 100, min2 = 100;
+    
+    /*
     if (prices[0] < prices[1]) {
         min1 = prices[0];
         min2 = prices[1];
@@ -9,9 +12,9 @@ int buyChoco(int* prices, int pricesSize, int money){
     else {
         min1 = prices[1];
         min2 = prices[0];
-    }
+    }*/
     
-    for (int i = 2; i < pricesSize; i++) {
+    for (int i = 0; i < pricesSize; i++) {
         if (prices[i] < min1) {
             min2 = min1;
             min1 = prices[i];
@@ -23,7 +26,7 @@ int buyChoco(int* prices, int pricesSize, int money){
     int minT = min1 + min2;
     
     if (minT <= money) {
-        return money - (minT);
+        return money - minT;
     }
     
     return money;
