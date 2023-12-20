@@ -20,8 +20,10 @@ int buyChoco(int* prices, int pricesSize, int money){
         }
     }
     
-    if (min1 + min2 <= money) {
-        return money - (min1 + min2);
+    int minT = min1 + min2;
+    
+    if (minT <= money) {
+        return money - (minT);
     }
     
     return money;
