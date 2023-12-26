@@ -4,20 +4,17 @@ int memo[31][1001];
 
 int dp(int d, int target, int f) {
     
-    if (d == 0) {
+    if (d == 0)
         return (target > 0) ? 0 : 1;
-    }
     
-    if (memo[d][target] != -1) {
+    if (memo[d][target] != -1)
         return memo[d][target];
-    }
     
     int to_return = 0;
     
-    for (int k = max(0, target - f); k < target; k++) {
+    for (int k = max(0, target - f); k < target; k++)
         to_return = (to_return + dp(d - 1, k, f)) % MOD;
-    }
-    
+
     memo[d][target] = to_return;
     return to_return;
     
