@@ -5,14 +5,16 @@ int maxLengthBetweenEqualCharacters(char* s)
 {   
     int firstIndex[CHAR_RANGE];
     
-    for (int i = 0; i < CHAR_RANGE; i++) {
+    for (int i = 0; i < CHAR_RANGE; i++) 
+    {
         firstIndex[i] = -1;
     }
     
     int ans = -1;
     int length = strlen(s);
     
-    for (int i = 0; i < length; i++) {
+    for (int i = 0; i < length; i++) 
+    {
         int index = s[i] - 'a';
         
         if (firstIndex[index] != -1) 
