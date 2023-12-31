@@ -1,7 +1,10 @@
-int maxLengthBetweenEqualCharacters(char* s) {
-    int firstIndex[128];
+#define CHAR_RANGE 26
+
+int maxLengthBetweenEqualCharacters(char* s) 
+{   
+    int firstIndex[CHAR_RANGE];
     
-    for (int i = 0; i < 128; i++) {
+    for (int i = 0; i < CHAR_RANGE; i++) {
         firstIndex[i] = -1;
     }
     
@@ -9,10 +12,12 @@ int maxLengthBetweenEqualCharacters(char* s) {
     int length = strlen(s);
     
     for (int i = 0; i < length; i++) {
-        if (firstIndex[s[i]] != -1) {
-            ans = (ans > i - firstIndex[s[i]] - 1) ? ans : i - firstIndex[s[i]] - 1;
+        int index = s[i] - 'a';
+        
+        if (firstIndex[index] != -1) {
+            ans = (ans > i - firstIndex[index] - 1) ? ans : i - firstIndex[index] - 1;
         } else {
-            firstIndex[s[i]] = i;
+            firstIndex[index] = i;
         }
     }
 
