@@ -1,4 +1,5 @@
 #define CHAR_RANGE 26
+#define max(a, b) (a > b ? a : b)
 
 int maxLengthBetweenEqualCharacters(char* s) 
 {   
@@ -14,9 +15,12 @@ int maxLengthBetweenEqualCharacters(char* s)
     for (int i = 0; i < length; i++) {
         int index = s[i] - 'a';
         
-        if (firstIndex[index] != -1) {
-            ans = (ans > i - firstIndex[index] - 1) ? ans : i - firstIndex[index] - 1;
-        } else {
+        if (firstIndex[index] != -1) 
+        {
+            ans = max(ans, i - firstIndex[index] - 1);
+        } 
+        else 
+        {
             firstIndex[index] = i;
         }
     }
