@@ -5,6 +5,7 @@ void swap(int* a, int* b)
     *b = temp;
 }
 
+/*
 void bubbleSort(int* arr, int size)
 {
     for (int i = 0; i < size - 1; i++)
@@ -18,6 +19,7 @@ void bubbleSort(int* arr, int size)
         }
     }
 }
+
 
 void selectionSort(int* arr, int size)
 {
@@ -98,3 +100,62 @@ int findContentChildren(int* g, int gSize, int* s, int sSize)
 
     return contentChildren;
 }
+*/
+
+int partition(int* arr, int low, int high) 
+{
+    int pivot = arr[high];
+    int i = low - 1;
+
+    for (int j = low; j <= high - 1; j++) 
+    {
+        if (arr[j] < pivot) 
+        {
+            i++;
+            swap(&arr[i], &arr[j]);
+        }
+    }
+    
+    swap(&arr[i + 1], &arr[high]);
+    return i + 1;
+}
+
+void quickSort(int* arr, int low, int high) 
+{
+    if (low < high) 
+    {
+        int pi = partition(arr, low, high);
+
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
+    }
+}
+
+void sort(int* arr, int size) 
+{
+    quickSort(arr, 0, size - 1);
+}
+
+
+
+int findContentChildren(int* g, int gSize, int* s, int sSize)
+{
+    
+    sort(g, gSize);
+    sort(s, sSize);
+
+    int contentChildren = 0;
+    int cookieIndex = 0;
+
+    while (cookieIndex < sSize && contentChildren < gSize)
+    {
+        if (s[cookieIndex] >= g[contentChildren])
+        {
+            contentChildren++;
+        }
+        cookieIndex++;
+    }
+
+    return contentChildren;
+}
+
